@@ -1,6 +1,13 @@
-# Postal Stats Backend
+# Postal Stats - Full Stack Email Analytics
 
-A Laravel 12 API-only backend designed to work alongside [Postal MTA](https://github.com/postalserver/postal) to provide enhanced email statistics and analytics capabilities.
+A complete full-stack application designed to work alongside [Postal MTA](https://github.com/postalserver/postal) to provide enhanced email statistics and analytics capabilities.
+
+## 🏗️ Architecture Overview
+
+This is a **full-stack application** consisting of two separate repositories:
+
+- **Frontend (React/TypeScript):** [https://github.com/Praashanna/postal-stats](https://github.com/Praashanna/postal-stats)
+- **Backend (Laravel API):** [https://github.com/Praashanna/postal-stats-backend](https://github.com/Praashanna/postal-stats-backend)
 
 ## 📧 What is this?
 
@@ -50,13 +57,68 @@ This backend provides a robust API that connects directly to Postal's database t
 - **Rate Limiting** - Built-in API protection
 - **Comprehensive Logging** - Detailed operation logs
 
-## 🖥️ Frontend
+## 🖥️ Frontend Setup
 
-This backend is designed to work with the [Postal Stats Frontend](https://github.com/Praashanna/postal-stats) which provides a modern web interface for visualizing and managing your email statistics.
+This backend requires the **Postal Stats Frontend** to provide a complete user interface. The frontend is a modern React application that communicates with this API backend.
 
-**Get the Frontend:** [https://github.com/Praashanna/postal-stats](https://github.com/Praashanna/postal-stats)
+**Frontend Repository:** [https://github.com/Praashanna/postal-stats](https://github.com/Praashanna/postal-stats)
 
-## 🛠️ Installation
+### Frontend Configuration
+
+When setting up the frontend, you'll need to configure the API base URL to point to this backend:
+
+1. **For Development:** Edit `/public/assets/config.js` in the frontend:
+   ```javascript
+   const API_CONFIG = {
+     BASE_URL: "http://localhost:8000/api"  // Point to your backend URL
+   };
+   ```
+
+2. **For Production:** Update the same file with your production backend URL:
+   ```javascript
+   const API_CONFIG = {
+     BASE_URL: "https://your-backend-domain.com/api"
+   };
+   ```
+
+The frontend application will automatically use this configuration to connect to the API backend.
+
+## � Complete Full-Stack Setup
+
+To run the complete Postal Stats application, you need to set up both repositories:
+
+### 1. Backend Setup
+```bash
+# Clone the backend repository
+git clone https://github.com/Praashanna/postal-stats-backend.git
+cd postal-stats-backend
+
+# Install dependencies and configure
+composer install
+cp .env.example .env
+# Edit .env with your database settings
+php artisan key:generate
+php artisan jwt:secret
+php artisan migrate
+
+# Start the backend server
+php artisan serve
+# Backend will be available at http://localhost:8000
+```
+
+### 2. Frontend Setup
+```bash
+# Clone the frontend repository
+git clone https://github.com/Praashanna/postal-stats.git
+cd postal-stats
+
+# Configure API URL in /public/assets/config.js:
+# Change BASE_URL to "http://localhost:8000/api"
+
+# Install and start frontend (refer to frontend repository for specific instructions)
+```
+
+## �🛠️ Installation
 
 ### Prerequisites
 - PHP 8.2+
@@ -174,6 +236,7 @@ This project is developed and maintained by **Praashanna** at [**No Stress Limit
 ### Links
 - **Postal MTA (Official):** [https://github.com/postalserver/postal](https://github.com/postalserver/postal)
 - **Frontend Repository:** [https://github.com/Praashanna/postal-stats](https://github.com/Praashanna/postal-stats)
+- **Backend Repository:** [https://github.com/Praashanna/postal-stats-backend](https://github.com/Praashanna/postal-stats-backend)
 - **No Stress Limited:** [https://hostmaria.com](https://hostmaria.com)
 
 ## 🤝 Contributing
