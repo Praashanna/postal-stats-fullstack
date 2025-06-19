@@ -63,26 +63,6 @@ This backend requires the **Postal Stats Frontend** to provide a complete user i
 
 **Frontend Repository:** [https://github.com/Praashanna/postal-stats](https://github.com/Praashanna/postal-stats)
 
-### Frontend Configuration
-
-When setting up the frontend, you'll need to configure the API base URL to point to this backend:
-
-1. **For Development:** Edit `/public/assets/config.js` in the frontend:
-   ```javascript
-   const API_CONFIG = {
-     BASE_URL: "http://localhost:8000/api"  // Point to your backend URL
-   };
-   ```
-
-2. **For Production:** Update the same file with your production backend URL:
-   ```javascript
-   const API_CONFIG = {
-     BASE_URL: "https://your-backend-domain.com/api"
-   };
-   ```
-
-The frontend application will automatically use this configuration to connect to the API backend.
-
 ## � Complete Full-Stack Setup
 
 To run the complete Postal Stats application, you need to set up both repositories:
