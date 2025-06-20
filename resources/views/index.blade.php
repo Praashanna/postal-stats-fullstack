@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Postal Stats Website</title>
     <script src="/assets/config.js"></script>
-    <script type="module" crossorigin src="/assets/index-DM8EUVPt.js"></script>
+    <script type="module" crossorigin src="/assets/index-Zj0G14S6.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-DCobbOMk.css">
   </head>
   <body>
